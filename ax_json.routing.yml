@@ -1,0 +1,11 @@
+ax_json.content:
+  path: '/page_json/{api_key}/{node}'
+  defaults:
+    _controller: '\Drupal\ax_json\Controller\JSONPageController::content'
+    _title: 'Node Json data'
+  requirements:
+    _custom_access: '\Drupal\ax_json\Access\JSONPageAccessCheck::access'
+  options:
+    parameters:
+      node:
+        type: entity:node
