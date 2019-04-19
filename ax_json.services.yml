@@ -1,0 +1,5 @@
+services:
+  describe_site.route_subscriber:
+    class: 'Drupal\ax_json\Routing\SiteAPIRouteSubscriber'
+    tags:
+      - { name: event_subscriber }
