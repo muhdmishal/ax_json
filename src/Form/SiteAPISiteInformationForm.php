@@ -32,6 +32,8 @@ class SiteAPISiteInformationForm extends SiteInformationForm
       '#description' => $this->t('The API key for this site.'),
     ];
 
+    $form['actions']['submit']['#value'] = $this->t('Update configuration');
+
     return $form;
   }
 
