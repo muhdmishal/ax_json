@@ -40,11 +40,17 @@ class SiteAPISiteInformationForm extends SiteInformationForm
    */
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
-    $this->config('system.site')
-      ->set('siteapikey', $form_state->getValue('api_key'))
-      ->save();
+    $api_key = $form_state->getValue('api_key');
+
+    // Check if API key field is having default value.
+    if ($api_key != 'No API Key yet') {
+      $this->config('system.site')
+        ->set('siteapikey', $api_key)
+        ->save();
+
+      drupal_set_message('Site API Key has been saved with ' . $api_key);
+    }
 
     parent::submitForm($form, $form_state);
   }
 }
-?>
